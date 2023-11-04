@@ -35,12 +35,13 @@ public class FrequencyEvaluatorController {
                     description = "text to be evaluated",
                     example = "aaabbc"),
             responses = @ApiResponse(responseCode = "200",
-                    content = @Content(examples =
-                    @ExampleObject(value ="{\n" +
-                            "    \"a\": 3,\n" +
-                            "    \"b\": 2,\n" +
-                            "    \"c\": 1\n" +
-                            "}"))))
+                    description = "(OK) returns an array of symbols in descending frequency order",
+                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            examples = @ExampleObject(value = "{\n" +
+                                    "    \"a\": 3,\n" +
+                                    "    \"b\": 2,\n" +
+                                    "    \"c\": 1\n" +
+                                    "}"))))
     @GetMapping(params = "text",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
